@@ -1,0 +1,14 @@
+.plan-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.plan-sidebar .planners-list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    margin: 15px 0;
+}

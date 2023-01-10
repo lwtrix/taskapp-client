@@ -1,0 +1,40 @@
+.tasks-list {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    min-height: 280px;
+    padding: 20px 15px;
+    padding-left: 5px;
+    max-height: 420px;
+    overflow: auto;
+    background-color: #2D4263;
+    border-radius: 5px;
+}
+
+.tasks-list .task-wrapper {
+    display: flex;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.tasks-list .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+}
+
+
+.tasks-list .controls span {
+    background-color: rgba(0, 0, 0, 0.397);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.tasks-list .controls span:last-child {
+    margin-left: 5px;
+}

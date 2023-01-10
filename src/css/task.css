@@ -1,0 +1,19 @@
+.task {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    flex: 1;
+    align-items: center;
+    padding: 15px 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.329);
+}
+
+.task .task-content {
+    margin: 0;
+}
+
+.task .task-status {
+    font-weight: 500;
+}

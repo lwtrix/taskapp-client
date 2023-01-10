@@ -1,0 +1,14 @@
+.planner {
+    background-color: #2D4263;
+    color: rgb(255, 255, 255);
+    margin: 5px 0;
+    cursor: pointer;
+    transition: .2s;
+    text-transform: capitalize;
+    padding: 8px 5px;
+    border-radius: 3px;
+}
+
+.planner:hover {
+    background-color: rgb(144, 144, 144);
+}

@@ -1,0 +1,9 @@
+.main-content .planner-name {
+    display: flex;
+    align-items: center;
+    color: #A5C9CA;
+}
+
+.main-content .planner-name span {
+    margin-right: 10px;
+}
