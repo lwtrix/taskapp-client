@@ -18,7 +18,8 @@ export const TasksList = () => {
   const [tasks, setTasks] = useState([]);
 
   const fetchSelectedPlannerTasks = async () => {
-    const baseEndpoint = `http://localhost:5001/planners/${plannerId}/tasks`;
+    const SERVER_URL = process.env.REACT_APP_SERVER_URL
+    const baseEndpoint = `${SERVER_URL}/planners/${plannerId}/tasks`;
 
     const res = await fetch(baseEndpoint);
     const tasksArr = await res.json();
@@ -36,7 +37,7 @@ export const TasksList = () => {
       <div className="tasks-list">
         {tasks.length
           ? tasks.map((task) => (
-            <div className="task-wrapper">
+            <div className="task-wrapper" key={task.id}>
               <div className="controls">
                     <span>
                       <HiTrash style={{color: '#E94560'}}/>
@@ -45,7 +46,7 @@ export const TasksList = () => {
                       <MdEdit style={{color: '#fff'}}/>
                     </span>
                   </div>
-                  <Task task={task} key={task.id}/>
+                  <Task task={task}/>
               </div>
                   
             ))

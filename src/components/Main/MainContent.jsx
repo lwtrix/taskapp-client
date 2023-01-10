@@ -17,7 +17,8 @@ export const MainContent = ({refreshPlanners}) => {
 
   const fetchPlannerInfo = async () => {
     if(plannerId) {
-      const res = await fetch(`http://localhost:5001/planners/${plannerId}`);
+      const SERVER_URL = process.env.REACT_APP_SERVER_URL
+      const res = await fetch(`${SERVER_URL}/planners/${plannerId}`);
       const selectedPlanner = await res.json();
       setPlannerName(selectedPlanner.name);
     } 

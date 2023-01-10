@@ -20,7 +20,8 @@ export const NewPlannerModal = ({ show, handleClose, refreshPlanners }) => {
             })
         }
 
-        const baseEndpoint = 'http://localhost:5001/planners'
+        const SERVER_URL = process.env.REACT_APP_SERVER_URL
+        const baseEndpoint = `${SERVER_URL}/planners`
 
         const res = await fetch(baseEndpoint, options)
 

@@ -20,8 +20,8 @@ export const Task = ({ task }) => {
           done: !isTaskDone,
         }),
       };
-      console.log(options);
-      const baseEndpoint = `http://localhost:5001/planners/${task.plannerId}/tasks/${task.id}`;
+      const SERVER_URL = process.env.REACT_APP_SERVER_URL
+      const baseEndpoint = `${SERVER_URL}/planners/${task.plannerId}/tasks/${task.id}`;
 
       const res = await fetch(baseEndpoint, options);
       if (res.ok) {

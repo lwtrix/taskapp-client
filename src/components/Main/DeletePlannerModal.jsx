@@ -12,8 +12,9 @@ export const DeletePlannerModal = ({show, handleClose, plannerId, plannerName, r
         const options = {
           method: 'DELETE'
         }
-    
-        const res = await fetch(`http://localhost:5001/planners/${plannerId}`, options)
+        
+        const SERVER_URL = process.env.REACT_APP_SERVER_URL
+        const res = await fetch(`${SERVER_URL}/planners/${plannerId}`, options)
         if(res.ok) {    
           dispatch(updateSelectedPlanner(null))
           refreshPlanners()

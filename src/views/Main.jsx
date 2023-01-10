@@ -11,7 +11,8 @@ export const Main = () => {
   const [planners, setPlanners] = useState([])
 
   const fetchResults = async () => {
-    const res = await fetch('http://localhost:5001/planners')
+    const baseEndpoint = process.env.REACT_APP_SERVER_URL
+    const res = await fetch(`${baseEndpoint}/planners`)
     const data = await res.json()
 
     setPlanners(data)

@@ -26,7 +26,8 @@ export const NewTaskModal = ({show, handleClose, refreshTasks, plannerId}) => {
             body: JSON.stringify(newTask)
         }
 
-        const baseEndpoint = `http://localhost:5001/planners/${plannerId}/tasks`
+        const SERVER_URL = process.env.REACT_APP_SERVER_URL
+        const baseEndpoint = `${SERVER_URL}/planners/${plannerId}/tasks`
 
         const res = await fetch(baseEndpoint, options)
         if(res.ok) {
