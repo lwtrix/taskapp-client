@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Task } from "./Task";
+import saveAs from 'file-saver'
 import "../../css/tasks-list.css";
 import { useSelector } from "react-redux";
 import { Button, Row, Col } from "react-bootstrap";
@@ -25,8 +26,18 @@ export const TasksList = () => {
     const tasksArr = await res.json();
 
     setTasks(tasksArr);
-    console.log(tasksArr);
   };
+
+  const handleDownloadPDF = async () => {
+    const SERVER_URL = process.env.REACT_APP_SERVER_URL
+    const baseEndpoint = `${SERVER_URL}/planners/${plannerId}/pdf`;
+
+    const res = await fetch(baseEndpoint)
+    if(res.ok) {
+      const blob = await res.blob()
+      saveAs(blob, 'planner.pdf')
+    }
+  }
 
   useEffect(() => {
     fetchSelectedPlannerTasks();
@@ -60,10 +71,14 @@ export const TasksList = () => {
         />
       </div>
       {plannerId && (
+        <>
         <Button variant="success" onClick={() => setShowCreateNewTask(true)}>
           New Task +
         </Button>
+        {tasks.length ? (<Button className="mx-3" onClick={handleDownloadPDF} variant="info">Download Planner PDF</Button>) : ''}
+        </>
       )}
+      
     </>
   );
 };
